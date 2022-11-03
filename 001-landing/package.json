@@ -9,8 +9,10 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@fontsource/fredoka-one": "^4.5.9",
     "@headlessui/vue": "^1.7.3",
     "@heroicons/vue": "^2.0.12",
+    "critters": "^0.0.16",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
   },
