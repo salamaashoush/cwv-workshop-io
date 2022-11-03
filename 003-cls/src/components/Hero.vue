@@ -3,7 +3,7 @@
     class="mx-auto flex max-w-7xl flex-col gap-12 py-24 px-4 lg:flex lg:flex-row-reverse lg:items-center lg:justify-between lg:px-8"
   >
     <img
-      class="h-auto w-40 scale-x-[-1] overflow-hidden rounded-2xl brightness-125 lg:w-80"
+      class="h-[270px] w-40 scale-x-[-1] overflow-hidden rounded-2xl brightness-125 lg:w-80"
       loading="lazy"
       :src="snailImage"
     />
