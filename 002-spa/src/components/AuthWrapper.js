@@ -18,7 +18,7 @@ const AuthWrapper = () => {
 
   // Poor man’s auth handling
   useEffect(() => {
-    const storedToken = localStorage.getItem("github_token")
+    const storedToken = process.env.REACT_APP_TOKEN || localStorage.getItem("github_token")
 
     if (storedToken) {
       setGithubToken(storedToken)
