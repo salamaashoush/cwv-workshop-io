@@ -18,7 +18,7 @@ const AuthWrapper = () => {
 
   // Poor man’s auth handling
   useEffect(() => {
-    const storedToken = "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"
+    const storedToken = "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"
 
     if (storedToken) {
       setGithubToken(storedToken)
@@ -35,7 +35,6 @@ const AuthWrapper = () => {
         .then((response) => response.json())
         .then(({ token, error }) => {
           if (error) throw new Error(error)
-
           localStorage.setItem("github_token", token)
           setGithubToken(token)
           setStatus(STATUS.FINISHED_LOADING)
