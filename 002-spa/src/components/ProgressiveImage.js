@@ -18,7 +18,7 @@ const ProgressiveImage = (props) => {
 }
 
 const ImageWithOpacity = styled.img`
-  transition: opacity 0.5s ease-out;
+  /* transition: opacity 0.5s ease-out; */
 `
 
 export default ProgressiveImage

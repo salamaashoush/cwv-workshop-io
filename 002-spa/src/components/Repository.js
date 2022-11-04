@@ -14,7 +14,7 @@ function Repository({ repo }) {
           {repo.language} <FontAwesomeIcon icon={faStar} aria-hidden="true" />
           {repo.stargazers_count} <FontAwesomeIcon icon={faCodeFork} aria-hidden="true" /> {repo.forks_count}
         </RepoDetails>
-        <DateContainer>{formatDistance(repo.updated_at, new Date())}</DateContainer>
+        <DateContainer>{formatDistance(new Date(repo.updated_at), new Date())}</DateContainer>
       </InfoContainer>
     </RepoCard>
   )
