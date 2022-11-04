@@ -1,3 +1,5 @@
+import { faMapMarker, faUser } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React, { useEffect, useState } from "react"
 import styled from "styled-components/macro"
 import useSWR from "swr"
@@ -35,13 +37,13 @@ const Profile = ({ avatarUrl, userFullName, username, company, location, bio }) 
       <LocationSection>
         {company && (
           <div>
-            <Icon className="fa fa-user" aria-hidden="true" />
+            <FontAwesomeIcon icon={faUser} aria-hidden="true" />
             <Organisation>{company}</Organisation>
           </div>
         )}
         {location && (
           <div>
-            <Icon className="fa fa-map-marker" aria-hidden="true" />
+            <FontAwesomeIcon icon={faMapMarker} aria-hidden="true" />
             <Location>{location}</Location>
           </div>
         )}

@@ -4,7 +4,8 @@ import LoadingIndicator from "./LoadingIndicator"
 import useSWR from "swr"
 import { fetchRepositories, fetchUser } from "../clients/github"
 import Calendar from "./Calendar"
-
+import { faCodeFork, faStar } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const Overview = () => {
   const { data: user, error: userError } = useSWR("user", fetchUser)
   const { data: repositories, error: repositoriesError } = useSWR("repositories", () =>
@@ -27,8 +28,10 @@ const Overview = () => {
           <RepoInfoContainer>
             <Circle />
             <RepoDetails>
-              {repo.language} <Icon className="fa fa-star" aria-hidden="true" /> {repo.stargazers_count}{" "}
-              <Icon className="fa fa-code-fork" aria-hidden="true" /> {repo.forks_count}
+              {repo.language} <FontAwesomeIcon icon={faStar} aria-hidden="true" />
+              {repo.stargazers_count}
+              <FontAwesomeIcon icon={faCodeFork} aria-hidden="true" />
+              {repo.forks_count}
             </RepoDetails>
           </RepoInfoContainer>
         </RepoCard>

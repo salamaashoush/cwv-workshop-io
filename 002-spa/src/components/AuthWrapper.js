@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react"
+import { lazy, Suspense, useEffect, useState } from "react"
 import { Loading } from "gitstar-components"
 import { setGithubToken } from "../clients/github"
 import LoginScreen from "./LoginScreen"
-import AppContainer from "./AppContainer"
 
 const STATUS = {
   INITIAL: "initial",
@@ -13,12 +12,13 @@ const STATUS = {
 
 const GATEKEEPER_URI = process.env.REACT_APP_GATEKEEPER_URI
 
+const AppContainerLazy = lazy(() => import("./AppContainer"))
 const AuthWrapper = () => {
   const [status, setStatus] = useState(STATUS.INITIAL)
 
   // Poor man’s auth handling
   useEffect(() => {
-    const storedToken = localStorage.getItem("github_token")
+    const storedToken = "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"
 
     if (storedToken) {
       setGithubToken(storedToken)
@@ -45,9 +45,11 @@ const AuthWrapper = () => {
 
   return (
     <section>
-      {status === STATUS.AUTHENTICATED && <AppContainer />}
+      <Suspense fallback="Loading.....">
+        {status === STATUS.AUTHENTICATED && <AppContainerLazy />}
+        <header>{status === STATUS.INITIAL && <LoginScreen />}</header>
+      </Suspense>
 
-      <header>{status === STATUS.INITIAL && <LoginScreen />}</header>
       <Loading
         status={status}
         callback={() => {

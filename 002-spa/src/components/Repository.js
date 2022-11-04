@@ -1,6 +1,8 @@
 import React from "react"
 import moment from "moment"
 import styled from "styled-components/macro"
+import { faCodeFork, faStar } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 function Repository({ repo }) {
   return (
@@ -10,8 +12,8 @@ function Repository({ repo }) {
       <InfoContainer>
         <Circle />
         <RepoDetails>
-          {repo.language} <Icon className="fa fa-star" aria-hidden="true"></Icon> {repo.stargazers_count}{" "}
-          <Icon className="fa fa-code-fork" aria-hidden="true"></Icon> {repo.forks_count}
+          {repo.language} <FontAwesomeIcon icon={faStar} aria-hidden="true" />
+          {repo.stargazers_count} <FontAwesomeIcon icon={faCodeFork} aria-hidden="true" /> {repo.forks_count}
         </RepoDetails>
         <Date>{moment(repo.updated_at).fromNow()}</Date>
       </InfoContainer>
