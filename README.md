@@ -34,7 +34,7 @@ git switch day2
 
 5. If you try to test the `002-spa` app, the app will require you to sign in to GitHub. To skip this step, hard-code your GitHub token in the app:
 
-   - Once you’ve signed into the app locally, run `localStorage.setItem('github_token', '<your token from the local localStorage>')`
+   - Once you’ve signed into the app locally, run `localStorage.getItem('github_token')`
    - Copy the resulting value
    - Go to the `AuthWrapper.js` component and replace this line:
 
