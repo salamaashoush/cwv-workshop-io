@@ -28,11 +28,9 @@ const promoEnabled = ref(!promoDisabledInLanguages.includes(navigator.language))
 const promoExpiresIn = ref(null)
 const isVisible = ref(true)
 
-updatePromoExpiresIn()
-
 setInterval(() => {
   updatePromoExpiresIn()
-}, 1000 * 60)
+}, 1000)
 
 function updatePromoExpiresIn() {
   const nextDay = new Date()
