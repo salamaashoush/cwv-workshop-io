@@ -11,8 +11,9 @@ import ErrorComponent from "./ErrorComponent"
 
 import Profile from "./Profile"
 import Overview from "./Overview"
-import Repositories from "./Repositories"
-import Stars from "./Stars"
+
+const Repositories = React.lazy(() => import("./Repositories"))
+const Stars = React.lazy(() => import("./Stars"))
 
 const AppContainer = () => {
   const { data: user, error } = useSWR("user", fetchUser)
