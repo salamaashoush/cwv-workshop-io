@@ -1,9 +1,8 @@
 import React from "react"
-import moment from "moment"
 import styled from "styled-components/macro"
 import { faCodeFork, faStar } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
+import { formatDistance } from "date-fns"
 function Repository({ repo }) {
   return (
     <RepoCard>
@@ -15,7 +14,7 @@ function Repository({ repo }) {
           {repo.language} <FontAwesomeIcon icon={faStar} aria-hidden="true" />
           {repo.stargazers_count} <FontAwesomeIcon icon={faCodeFork} aria-hidden="true" /> {repo.forks_count}
         </RepoDetails>
-        <Date>{moment(repo.updated_at).fromNow()}</Date>
+        <DateContainer>{formatDistance(repo.updated_at, new Date())}</DateContainer>
       </InfoContainer>
     </RepoCard>
   )
@@ -27,7 +26,7 @@ const RepoCard = styled.div`
   margin-bottom: 16px;
 `
 
-const Date = styled.p`
+const DateContainer = styled.p`
   font-size: 12px;
   color: #586069;
   margin-left: 10px;
